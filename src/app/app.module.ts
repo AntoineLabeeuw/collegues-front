@@ -5,18 +5,19 @@ import { AppComponent } from './app.component';
 import { NgbdAlertCloseable } from './ng-boostrap/ngbd'
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { CollegueComponent } from './collegue/collegue.component';
+import { RechercheCollegueParNomComponent } from './recherche-collegue-par-nom/recherche-collegue-par-nom.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NgbdAlertCloseable,
-    CollegueComponent
+    CollegueComponent,
+    RechercheCollegueParNomComponent
   ],
   imports: [
     BrowserModule,
     NgbModule
   ],
   providers: [],
-  bootstrap: [AppComponent, NgbdAlertCloseable]
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

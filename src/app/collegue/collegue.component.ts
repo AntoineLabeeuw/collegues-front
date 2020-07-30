@@ -7,7 +7,7 @@ import { Collegue } from '../models/Collegue';
 })
 export class CollegueComponent implements OnInit {
   @Input()
-  collegues: CollegueComponent;
+  collegues: Collegue;
   edit = false;
   constructor() { }
   consoleModification(): void {
@@ -17,10 +17,11 @@ export class CollegueComponent implements OnInit {
   consoleCreation(): void {
     console.log(`Création d'un nouveau collègue`);
   }
-  consoleValider(email, photoUrl): void {
-    // in fine, sert a modifier les valeurs deja rentrées
+  consoleValider(email: string, photoUrl: string): void {
     this.edit = !this.edit;
-    console.log('Validation de la modif');
+    this.collegues.email = email;
+    this.collegues.photoUrl = photoUrl;
+    console.log(`Validation de la modification avec les informations (email=${email}, photoUrl=${photoUrl})`);
   }
   ngOnInit(): void {
   }

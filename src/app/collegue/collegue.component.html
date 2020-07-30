@@ -1,16 +1,16 @@
 <div class="container" style="margin-top:30px">
   <div class="row">
-    <div class="col-sm-4" style="text-align: center;">
-      <img class="mx-auto d-block img-fluid" style="max-width:150px;" src="{{ collegues['photoUrl'] }}" />
+    <div class="col-sm-12 col-md-4" style="text-align: center;">
+      <img class="mx-auto d-block img-fluid" src="{{ collegues.photoUrl }}" />
     </div>
-    <div class="col-sm-8" style="text-align: left;">
-      <p>Matricule : {{ collegues['matricule'] }}<br />
-        Nom : {{ collegues['nom'] | uppercase }}<br />
-        Prenom : {{ collegues['prenoms'] }}<br />
-        Date de naissance : {{ collegues['dateDeNaissance'] | date:'dd-MM-yyyy'}}<br />
+    <div class="col-sm-12 col-md-8" style="text-align: left;">
+      <p>Matricule : {{ collegues.matricule }}<br />
+        Nom : {{ collegues.nom | uppercase }}<br />
+        Prenom : {{ collegues.prenoms }}<br />
+        Date de naissance : {{ collegues.dateDeNaissance | date:'dd-MM-yyyy'}}<br />
         E-mail :
         <ng-container *ngIf="!edit">
-          {{ collegues['email'] }}
+          {{ collegues.email }}
           <button type="button" class="btn btn-outline-secondary float-right"
             (click)="consoleModification()">Modifier</button>
         </ng-container>
@@ -19,7 +19,7 @@
           Photo URL :
           <input type="text" #photoUrl class="form-control">
           <button type="button" class="btn btn-outline-secondary float-right"
-            (click)="consoleValider()">Valider</button>
+            (click)="consoleValider(email.value, photoUrl.value)">Valider</button>
         </ng-container>
       </p>
       <a href="#" (click)="consoleCreation()" [hidden]="edit">Créer un nouveau collègue</a>

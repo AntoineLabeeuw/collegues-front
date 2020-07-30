@@ -14,9 +14,12 @@ export class RechercheCollegueParNomComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  rechercheParNom(texte): void {
-    this.filteredMatricules = this.matricules.filter(matricule => matricule.nom.toLowerCase() === texte.value.toLowerCase());
-    console.log(texte.value);
+  rechercheParNom(texte: string): void {
+    if(texte.length === 0) {
+      this.filteredMatricules = this.matricules;
+    } else {
+      this.filteredMatricules = this.matricules.filter(matricule => matricule.nom.toLowerCase() === texte.toLowerCase());
+    }
   }
 
 }

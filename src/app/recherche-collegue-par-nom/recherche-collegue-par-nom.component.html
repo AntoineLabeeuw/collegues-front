@@ -10,12 +10,9 @@
       <button type="button" class="btn btn-outline-secondary float-right" (click)="rechercheParNom(recherche.value)">Rechercher</button>
     </div>
   </div>
-  <div class="row" *ngFor="let nomMat of filteredMatricules">
-    <div class="col-sm-4" style="text-align: left;">
-      nom : {{ nomMat.nom }}
-    </div>
-    <div class="col-sm-8" style="text-align: left;">
-      matricule : {{ nomMat.matricule }}
+  <div class="row" *ngFor="let nomMat of matricules">
+    <div class="col-sm-12" style="text-align: left;">
+      <p (click)=selectionner(nomMat)>matricule : {{ nomMat }}</p>
     </div>
   </div>
 </div>

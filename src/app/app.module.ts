@@ -16,7 +16,8 @@ import { RechercheCollegueParNomComponent } from './recherche-collegue-par-nom/r
   ],
   imports: [
     BrowserModule,
-    NgbModule
+    NgbModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

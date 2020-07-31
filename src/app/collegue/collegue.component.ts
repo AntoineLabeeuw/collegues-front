@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Collegue } from '../models/Collegue';
 import { DataService } from '../services/data.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-collegue',
@@ -8,6 +9,7 @@ import { DataService } from '../services/data.service';
   styleUrls: ['./collegue.component.css']
 })
 export class CollegueComponent implements OnInit {
+  colSelect: Subscription;
   collegues: Collegue;
   edit = false;
   constructor(private _dataSrv: DataService) { }
@@ -25,6 +27,12 @@ export class CollegueComponent implements OnInit {
     console.log(`Validation de la modification avec les informations (email=${email}, photoUrl=${photoUrl})`);
   }
   ngOnInit(): void {
-    this.collegues = this._dataSrv.recupererCollegueCourant()[0];
+    this.colSelect = this._dataSrv.sabonnerAColSelect().subscribe(
+      col => this.collegues = col,
+      err => { }
+    );
+  }
+  ngOnDestroy(): void {
+    this.colSelect.unsubscribe();
   }
 }

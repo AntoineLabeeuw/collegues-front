@@ -1,9 +1,11 @@
 import { Injectable } from '@angular/core';
 import { matricules } from '../mock/matricules.mock';
 
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { creerCollegue } from '../mock/collegues.mock';
 import { Collegue } from '../models/Collegue';
+import { HttpClient } from '@angular/common/http';
+import { tap } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -11,15 +13,27 @@ import { Collegue } from '../models/Collegue';
 export class DataService {
   matricules = matricules;
   col: Collegue[] = creerCollegue();
-  constructor() { }
-
+  subjectCol = new Subject<Collegue>();
+  constructor(private http: HttpClient) { }
+  sabonnerAColSelect(): Observable<Collegue> {
+    console.log('test');
+    console.log(this.subjectCol.asObservable());
+    return this.subjectCol.asObservable();
+  }
   listerMatricules(): any[] {
     return this.matricules;
   }
-  rechercheParNom(nom: string): any[] {
-    return this.matricules.filter((matricule) => (matricule.nom === nom));
+  // GET ?nom
+  rechercheParNom(nom: string): Observable<string[]> {
+    return this.http.get<string[]>(`https://antoine-collegues-api.herokuapp.com/collegues?nom=${nom}`);
   }
-  recupererCollegueCourant(): Collegue[] {
-    return this.col;
+  // GET /{matricule}
+  recupererCollegueCourant(matricule: string): Observable<Collegue> {
+    return this.http.get<Collegue>(`https://antoine-collegues-api.herokuapp.com/collegues/${matricule}`);
+  }
+  selectionner(mat: string): Observable<Collegue> {
+    return this.recupererCollegueCourant(mat).pipe(
+      tap(col => this.subjectCol.next(col))
+    );
   }
 }

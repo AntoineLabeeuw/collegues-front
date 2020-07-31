@@ -10,6 +10,4 @@ import { matricules } from './mock/matricules.mock';
 })
 export class AppComponent {
   title = 'collegues-front';
-  collegues: Collegue[] = creerCollegue();
-  matricules: any[] = matricules;
 }

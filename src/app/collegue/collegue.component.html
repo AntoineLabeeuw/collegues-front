@@ -1,9 +1,9 @@
 <div class="container" style="margin-top:30px">
-  <div class="row">
+  <div class="row" *ngIf="collegues!==undefined">
     <div class="col-sm-12 col-md-4" style="text-align: center;">
       <img class="mx-auto d-block img-fluid" src="{{ collegues.photoUrl }}" />
     </div>
-    <div class="col-sm-12 col-md-8" style="text-align: left;" >
+    <div class="col-sm-12 col-md-8" style="text-align: left;">
       <p>Matricule : {{ collegues.matricule }}<br />
         Nom : {{ collegues.nom | uppercase }}<br />
         Prenom : {{ collegues.prenoms }}<br />

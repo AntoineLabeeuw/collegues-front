@@ -26,4 +26,15 @@ This app has a research box to research names. The names availables in databases
 * nomcollegue1
 * Oddet
 
-If you search these names (it is case insensitive), a list of UUID will be displayed. Click on them to view colleagues details !
+At first you will be inside a page with a research box. Try searching for names given above !
+
+![front base](/imagesReadme/photo1.png)
+
+When you search for an available name and click on __Rechercher__, somme UUIDs will appear :
+
+![front search](/imagesReadme/photo2.png)
+
+And when you click on a UUID, you will see the detail of the colleague with the UUID.  
+The button __Modifier__ works, but the changes are not stored in database for now.
+
+![front details](/imagesReadme/photo3.png)

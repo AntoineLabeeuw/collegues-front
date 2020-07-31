@@ -14,4 +14,16 @@ This project is a starter project to try angular. This application is an angular
 
 [https://antoinelabeeuw.github.io/collegues-front/](https://antoinelabeeuw.github.io/collegues-front/)
 
+## Datas
 
+This app has a research box to research names. The names availables in databases are:
+
+* nom1
+* nom2
+* nom3
+* nom4
+* nom5
+* nomcollegue1
+* Oddet
+
+If you search these names (it is case insensitive), a list of UUID will be displayed. Click on them to view colleagues details !

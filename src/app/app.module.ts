@@ -9,13 +9,15 @@ import { CollegueComponent } from './collegue/collegue.component';
 import { RechercheCollegueParNomComponent } from './recherche-collegue-par-nom/recherche-collegue-par-nom.component';
 import { CreerCollegueComponent } from './creer-collegue/creer-collegue.component';
 import { FormsModule } from '@angular/forms';
+import { UrlValidatorDirective } from './validators/url-validator.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
     CollegueComponent,
     RechercheCollegueParNomComponent,
-    CreerCollegueComponent
+    CreerCollegueComponent,
+    UrlValidatorDirective
   ],
   imports: [
     BrowserModule,

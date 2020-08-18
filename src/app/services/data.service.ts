@@ -47,4 +47,9 @@ export class DataService {
     console.log(`test creation collegue : ${col}`);
     return this.http.post(`https://antoine-collegues-api.herokuapp.com/collegues`, JSON.stringify(col), httpOptions);
   }
+
+  getAllCollegues(): Observable<any> {
+    console.log('récupération des collègues')
+    return this.http.get(`https://antoine-collegues-api.herokuapp.com/collegues`);
+  }
 }
